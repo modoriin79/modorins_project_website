@@ -21,7 +21,12 @@ function render(filter = 'all') {
     if(p.url && /^https?:\/\//.test(p.url)){link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='웹사이트 방문 ↗';}else{link.textContent='배포 링크 준비 중';}
     const detail = document.createElement('button'); detail.type='button'; detail.className='detail-button'; detail.textContent='프로젝트 상세 ↗';
     detail.addEventListener('click',()=>openProject(p,visual));
-    info.append(tag,title,desc,detail,link);card.append(visual,info);list.append(card);
+    info.append(tag,title,desc,detail,link);const windowFrame=document.createElement('div');windowFrame.className='notepad-window';
+    const bar=document.createElement('div');bar.className='notepad-title';bar.setAttribute('aria-hidden','true');
+    const name=document.createElement('span');name.textContent=`${p.title} — Notepad`;
+    const controls=document.createElement('span');controls.className='window-controls';controls.textContent='▁ □ ×';bar.append(name,controls);
+    const menu=document.createElement('div');menu.className='notepad-menu';menu.setAttribute('aria-hidden','true');menu.textContent='File   Edit   Format   View   Help';
+    windowFrame.append(bar,menu,visual);card.append(windowFrame,info);list.append(card);
   });
 }
 render();
