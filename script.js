@@ -12,7 +12,9 @@ function render(filter = 'all') {
     const desc = document.createElement('p'); desc.textContent=p.description;
     const link = document.createElement(p.url ? 'a' : 'span'); link.className='project-link';
     if(p.url && /^https?:\/\//.test(p.url)){link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='웹사이트 방문 ↗';}else{link.textContent='배포 링크 준비 중';}
-    info.append(tag,title,desc,link);card.append(visual,info);list.append(card);
+    const detail = document.createElement('button'); detail.type='button'; detail.className='detail-button'; detail.textContent='프로젝트 상세 ↗';
+    detail.addEventListener('click',()=>openProject(p,visual));
+    info.append(tag,title,desc,detail,link);card.append(visual,info);list.append(card);
   });
 }
 render();
@@ -20,4 +22,19 @@ document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListen
  document.querySelectorAll('[data-filter]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});render(button.dataset.filter);
 }));
 document.querySelector('#year').textContent=new Date().getFullYear();
-try{let visits=Number(localStorage.getItem('modorin-visits'))||0;if(!sessionStorage.getItem('modorin-visited')){visits++;localStorage.setItem('modorin-visits',String(visits));sessionStorage.setItem('modorin-visited','1');}document.querySelector('#visits').textContent=`이 브라우저 방문 ${visits.toLocaleString()}`;}catch{document.querySelector('#visits').textContent='방문 집계 사용 불가';}
+
+const dialog = document.querySelector('#project-detail');
+function openProject(project, visual) {
+ const content=document.querySelector('#detail-content'); content.replaceChildren();
+ const label=document.createElement('p');label.className='index';label.textContent=project.subtitle;
+ const heading=document.createElement('h2');heading.id='detail-title';heading.textContent=project.title;
+ const figure=document.createElement('figure');figure.append(visual.cloneNode(true));
+ const caption=document.createElement('figcaption');caption.textContent='인터페이스 콘셉트 · 실제 서비스 스크린샷은 추후 추가 예정';figure.append(caption);
+ const layout=document.createElement('div');layout.className='detail-columns';
+ const overview=document.createElement('section');const oh=document.createElement('h3');oh.textContent='Overview';const description=document.createElement('p');description.textContent=project.description;overview.append(oh,description);
+ const technical=document.createElement('section');const th=document.createElement('h3');th.textContent='Technical notes';const note=document.createElement('p');note.textContent='기술 스택, 구현 과정, 담당 역할은 확인된 정보를 바탕으로 추가할 예정입니다.';technical.append(th,note);
+ if(project.url && /^https?:\/\//.test(project.url)){const link=document.createElement('a');link.href=project.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='배포된 웹사이트 열기 ↗';technical.append(link);}
+ layout.append(overview,technical);content.append(label,heading,figure,layout);dialog.showModal();
+}
+document.querySelector('#close-detail').addEventListener('click',()=>dialog.close());
+dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
