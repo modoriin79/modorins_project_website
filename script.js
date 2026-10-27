@@ -36,7 +36,7 @@ function openProject(project, visual) {
  const label=document.createElement('p');label.className='index';label.textContent=project.subtitle;
  const heading=document.createElement('h2');heading.id='detail-title';heading.textContent=project.title;
  const figure=document.createElement('figure');figure.append(visual.cloneNode(true));
- const caption=document.createElement('figcaption');caption.textContent='인터페이스 콘셉트 · 실제 서비스 스크린샷은 추후 추가 예정';figure.append(caption);
+ const caption=document.createElement('figcaption');caption.textContent=project.image ? `${project.title} · 실제 서비스 화면` : '인터페이스 콘셉트 · 실제 서비스 스크린샷은 추후 추가 예정';figure.append(caption);
  const layout=document.createElement('div');layout.className='detail-columns';
  const overview=document.createElement('section');const oh=document.createElement('h3');oh.textContent='Overview';const description=document.createElement('p');description.textContent=project.description;overview.append(oh,description);
  const technical=document.createElement('section');const th=document.createElement('h3');th.textContent='Technical notes';const note=document.createElement('p');note.textContent='기술 스택, 구현 과정, 담당 역할은 확인된 정보를 바탕으로 추가할 예정입니다.';technical.append(th,note);

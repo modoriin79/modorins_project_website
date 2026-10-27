@@ -65,3 +65,24 @@ dialog{width:min(900px,92vw);max-height:90vh;padding:30px;border:1px solid #111;
 @media(max-width:900px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.study-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){header nav{gap:10px;font-size:10px}header .logo{font-size:25px}.projects{gap:30px;grid-template-columns:1fr}.project-visual{height:210px}.project p{min-height:0}.editorial-section{margin-top:65px}.section-note{font-size:8px}.award-row summary{grid-template-columns:70px 1fr auto;gap:10px}.award-row time{font-size:15px}.award-row h3{font-size:19px}.award-detail{margin-left:0}.study-grid{gap:16px}.study h3{font-size:17px}.detail-columns{grid-template-columns:1fr;gap:10px}dialog{padding:20px}.visitor-counter{margin-left:auto}footer{margin-top:60px}}
 @media(prefers-reduced-motion:reduce){.mock{transition:none}.detail-button:hover{transform:none}}
+
+/* Uploaded project screenshots: compact thumbnail, full image in details. */
+.project-visual:has(> img) { background: #fff; }
+.project-visual > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .2s ease;
+}
+.project:hover .project-visual > img { transform: scale(1.025); }
+#project-detail figure .project-visual:has(> img) { height: auto; }
+#project-detail figure .project-visual > img {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-visual > img { transition: none; }
+  .project:hover .project-visual > img { transform: none; }
+}
