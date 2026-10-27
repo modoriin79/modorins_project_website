@@ -6,6 +6,13 @@ function render(filter = 'all') {
     const visual = document.createElement('div'); visual.className = `project-visual ${p.visual}`;
     visual.setAttribute('aria-hidden','true');
     visual.innerHTML = p.visual === 'habit' ? '<div class="mock habit-mock"><div class="mock-top">Daily rhythm <span>✳</span></div><small>A LITTLE BETTER, EVERY DAY.</small><div class="habit-grid">'+Array.from({length:28},(_,i)=>`<i class="${[2,6,10,17,23,27].includes(i)?'':'done'}"></i>`).join('')+'</div><div class="mock-bottom">작은 습관, 큰 변화 <b>↗</b></div></div>' : '<div class="mock planner-mock"><div class="mock-top">My weekly plan <span>↗</span></div><small>MAKE ROOM FOR WHAT MATTERS.</small><div class="week"><div>MON<i></i><i></i></div><div>TUE<i></i></div><div>WED<i></i><i></i></div><div>THU<i></i></div><div>FRI<i></i><i></i></div></div></div>';
+    if(p.image) {
+      const img = document.createElement('img');
+      img.src = p.image;
+      img.alt = '';
+      img.loading = 'lazy';
+      visual.replaceChildren(img);
+    }
     const info = document.createElement('div'); info.className = 'project-info';
     const tag = document.createElement('span'); tag.className='project-tag'; tag.textContent=p.tag;
     const title = document.createElement('h3'); title.textContent=p.title;
