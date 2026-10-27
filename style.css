@@ -89,10 +89,13 @@ dialog{width:min(900px,92vw);max-height:90vh;padding:30px;border:1px solid #111;
 
 /* Annotated refinement: folder tabs, Notepad previews and study folders. */
 .hero h1 { letter-spacing: -.045em; }
-.section-head { position: relative; border-bottom: 2px solid #111; align-items: end; gap: 16px; }
+.section-head { position: relative; border-bottom: 1px solid #94b2c6; align-items: end; gap: 16px; }
 .section-head > div { min-width: 0; }
-.section-head .index { display: block; margin-bottom: 16px; }
-.section-head h2 { position: relative; margin: 0 0 -2px; padding: 14px 22px 13px; border: 2px solid #111; border-bottom: 2px solid var(--paper); background: var(--paper); font-size: clamp(30px,4.4vw,54px); }
+.section-head .index { display: block; margin-bottom: 24px; }
+/* Match the blue study folders with a raised tab and a pale front face. */
+.section-head h2 { position: relative; isolation: isolate; margin: 0 0 -1px; padding: 15px 28px 14px 22px; border: 0; background: none; color: #111; font-size: clamp(30px,4.4vw,54px); }
+.section-head h2::before { content: ''; position: absolute; z-index: -2; left: 0; top: -9px; width: 42%; height: 14px; background: linear-gradient(#65addb,#4f9fd1); clip-path: polygon(0 0,calc(100% - 14px) 0,100% 100%,0 100%); }
+.section-head h2::after { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(150deg,#c3e6fa,#94cbed); border-top: 2px solid #daf0fc; border-bottom: 1px solid #78a9c9; clip-path: polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%); }
 .section-head .count, .section-head .section-note { padding-bottom: 12px; flex-shrink: 0; }
 .award-row { margin-top: 18px; border-top: 0; }
 .award-row summary { padding: 16px 0; }
