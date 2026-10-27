@@ -123,3 +123,36 @@ dialog{width:min(900px,92vw);max-height:90vh;padding:30px;border:1px solid #111;
  .folder-icon { width: 112px; height: 84px; }
 }
 @media(prefers-reduced-motion:reduce) { .folder-icon > span { transition: none; } }
+/* Translucent document sleeves: each section is one complete clear file. */
+#projects, #awards, #studies {
+  position: relative;
+  padding: 28px 28px 32px;
+  border: 1px solid rgba(130, 135, 138, .4);
+  background: linear-gradient(135deg, rgba(255,255,255,.4), rgba(225,228,230,.4));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8), inset 3px 0 0 rgba(255,255,255,.35), 0 3px 8px rgba(35,40,45,.025);
+}
+#projects::before, #awards::before, #studies::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -15px;
+  width: 160px;
+  height: 15px;
+  border: 1px solid rgba(130,135,138,.4);
+  border-bottom: 0;
+  background: rgba(225,228,230,.4);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 0 100%);
+}
+#awards, #studies { margin-top: 72px; }
+.section-head { border-bottom: 1px solid rgba(130,135,138,.3); padding-bottom: 20px; }
+.section-head .index { margin-bottom: 14px; }
+.section-head h2 { margin: 0; padding: 0; background: none; }
+.section-head h2::before, .section-head h2::after { content: none; }
+.section-head .count, .section-head .section-note { padding-bottom: 3px; }
+@media (max-width:700px) {
+  #projects, #awards, #studies { padding: 20px 16px 24px; }
+  #awards, #studies { margin-top: 52px; }
+  .section-head { flex-wrap: wrap; padding-bottom: 16px; }
+  .section-head .section-note { margin-left: auto; }
+  .section-head h2 { padding: 0; }
+}
