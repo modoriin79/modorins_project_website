@@ -156,3 +156,22 @@ dialog{width:min(900px,92vw);max-height:90vh;padding:30px;border:1px solid #111;
   .section-head .section-note { margin-left: auto; }
   .section-head h2 { padding: 0; }
 }
+
+/* Reference layout: one-line greeting and a simple left-aligned biography. */
+.hero { padding: 90px 0 145px; }
+.hero h1 { display: flex; align-items: baseline; gap: .42em; white-space: nowrap; margin: 52px 0 140px; font-size: clamp(32px,8.1vw,116px); line-height: 1; font-weight: 700; letter-spacing: -.065em; }
+.hero h1 > span, .hero h1 > em { display: inline; margin: 0; }
+.hero-introduction { margin-left: 4px; color: #111; font: 300 22px/1.45 Arial,Helvetica,sans-serif; letter-spacing: 0; }
+.hero .hero-introduction p { margin: 0; color: inherit; font: inherit; letter-spacing: inherit; }
+.hero-learning { display: flex; gap: 25px; }
+.hero-learning ul { margin: 0; padding: 0; list-style: none; }
+.hero .hero-introduction .hero-contact { margin-top: 34px; }
+.hero-contact a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+@media(max-width:700px) {
+ .hero { padding: 50px 0 85px; }
+ .hero h1 { font-size: 8.1vw; gap: .35em; margin: 35px 0 65px; letter-spacing: -.065em; }
+ .hero h1 > em { margin-left: 0; }
+ .hero-introduction { margin-left: 0; font-size: 14px; line-height: 1.6; }
+ .hero-learning { gap: 18px; }
+ .hero .hero-introduction .hero-contact { margin-top: 25px; }
+}
