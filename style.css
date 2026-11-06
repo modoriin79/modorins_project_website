@@ -245,3 +245,24 @@ footer { align-items: center; }
 .filters button:hover { background: #e6e6e0; }
 .filters button.active, .filters button:active { background: #111; color: #fff; border-color: #111; }
 @media (max-width: 600px) { header nav a[target="_blank"] { display: none; } header nav { gap: 14px; font-size: 11px; } }
+
+/* v3: icon links without boxes, pixel cursor, cursor glow canvas. */
+.hero-links { gap: 8px 36px; }
+.hero-link { display: flex; align-items: center; gap: 14px; padding: 10px 0; border: 0; background: none; }
+.hero-link:hover { background: none; color: #111; transform: none; text-decoration: none; }
+.hero-link-icon { flex-shrink: 0; width: 30px; height: 30px; color: #111; transition: transform .15s, color .15s; }
+.hero-link-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.hero-link:hover .hero-link-kind { color: #62625e; }
+.hero-link-text { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color .15s; }
+.hero-link:hover .hero-link-text { text-decoration-color: currentColor; }
+.hero-link:hover .hero-link-icon { color: #2f6bff; transform: translateY(-2px); }
+.hero-link-arrow { margin-left: auto; font-size: 16px; color: #62625e; }
+.hero-link:hover .hero-link-arrow { color: #111; }
+
+@media (pointer: fine) {
+  html, body { cursor: url('cursor.svg') 1 1, auto; }
+  a, button, summary, [role="button"], .notepad-window, label { cursor: url('cursor-pointer.svg') 16 1, pointer; }
+}
+#cursor-glow { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; }
+dialog[open] ~ #cursor-glow { z-index: 9999; }
+@media (max-width: 700px) { .hero-link-icon { width: 26px; height: 26px; } }
