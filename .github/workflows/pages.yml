@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Prepare public files
         run: |
-          mkdir public
-          cp index.html style.css script.js projects.js cursor.js cursor.svg cursor-pointer.svg weekly_planner.png planner.png .nojekyll public/
+          # Publish every site file; only repo tooling and docs are left out.
+          rsync -a --exclude='.git' --exclude='.github' --exclude='.claude' --exclude='*.md' --exclude='/public' ./ public/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

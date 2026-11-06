@@ -270,3 +270,17 @@ dialog[open] ~ #cursor-glow { z-index: 9999; }
 .hero h1 { font-size: clamp(30px, 7.4vw, 104px); gap: .3em; }
 @media (max-width: 700px) { .hero h1 { font-size: 7.6vw; gap: .28em; } }
 .hero-links { max-width: 1060px; } .hero-link-text { white-space: nowrap; } @media (max-width: 420px) { .hero-link-text { white-space: normal; } }
+/* v5: content.js-driven pieces */
+.empty-state { grid-column: 1 / -1; margin: 18px 0 0; padding: 22px 0; border-top: 1px dashed #b9b9b2; border-bottom: 1px dashed #b9b9b2; color: #62625e; font-size: 13px; }
+.project-visual.is-empty { background: #f4f4ef; }
+.visual-placeholder { font: 12px/1.4 monospace; letter-spacing: .1em; color: #8a8a84; }
+.award-link, .detail-links a { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.detail-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.detail-meta { display: grid; grid-template-columns: 80px 1fr; gap: 8px 12px; font-size: 13px; }
+.detail-meta dd { margin: 0; color: #62625e; }
+.study-notes { list-style: none; margin: 4px 0 0; padding: 0; }
+.study-notes li { padding: 10px 0; border-top: 1px solid #ddd; }
+.study-notes time { display: block; font: 10px/1.5 monospace; letter-spacing: .06em; color: #62625e; }
+.study-note-title { display: inline-block; margin-top: 2px; font-size: 13px; font-weight: 600; }
+a.study-note-title { text-decoration: underline; text-underline-offset: 3px; }
+.study-notes p { margin: 4px 0 0; font-size: 12px; line-height: 1.7; color: #62625e; }
