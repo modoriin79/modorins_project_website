@@ -296,3 +296,8 @@ a.study-note-title { text-decoration: underline; text-underline-offset: 3px; }
 html, body { overflow-x: clip; }
 .hero-earth { width: 100vw; margin-left: calc(50% - 50vw); height: clamp(300px, 40vw, 600px); border-bottom: 0; background: #000; }
 @media (max-width: 700px) { .hero-earth { height: 68vw; } }
+/* v8: smaller space band that fits the first screen on laptops */
+.hero { padding-top: 48px; }
+.hero h1 { margin-top: 28px; margin-bottom: 24px; }
+.hero-earth { width: auto; margin-left: 0; height: clamp(220px, 25vw, 360px); max-height: calc(100vh - 380px); min-height: 220px; margin-bottom: 48px; }
+@media (max-width: 700px) { .hero { padding-top: 36px; } .hero h1 { margin-top: 24px; } .hero-earth { height: 56vw; max-height: none; min-height: 0; margin-bottom: 32px; } }
