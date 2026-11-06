@@ -79,7 +79,7 @@ window.siteContent = {
   awards: [
     {
       date: '2026.08',
-      title: '제2회 개발자 챌린지',
+      title: '제2회 IoT 개발자 챌린지',
       prize: '우수상',
       project: 'oneM2M을 사용한 거북목 자동탐지 스마트책상',
       note: '',
