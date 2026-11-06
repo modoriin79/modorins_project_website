@@ -266,3 +266,7 @@ footer { align-items: center; }
 #cursor-glow { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; }
 dialog[open] ~ #cursor-glow { z-index: 9999; }
 @media (max-width: 700px) { .hero-link-icon { width: 26px; height: 26px; } }
+/* v4: longer title "HELLO, ( RIN ) WORLD!" */
+.hero h1 { font-size: clamp(30px, 7.4vw, 104px); gap: .3em; }
+@media (max-width: 700px) { .hero h1 { font-size: 7.6vw; gap: .28em; } }
+.hero-links { max-width: 1060px; } .hero-link-text { white-space: nowrap; } @media (max-width: 420px) { .hero-link-text { white-space: normal; } }
