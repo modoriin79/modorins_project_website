@@ -17,15 +17,21 @@ function render(filter = 'all') {
     const tag = document.createElement('span'); tag.className='project-tag'; tag.textContent=p.tag;
     const title = document.createElement('h3'); title.textContent=p.title;
     const desc = document.createElement('p'); desc.textContent=p.description;
-    const link = document.createElement(p.url ? 'a' : 'span'); link.className='project-link';
-    if(p.url && /^https?:\/\//.test(p.url)){link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='웹사이트 방문 ↗';}else{link.textContent='배포 링크 준비 중';}
-    const detail = document.createElement('button'); detail.type='button'; detail.className='detail-button'; detail.textContent='프로젝트 상세 ↗';
+    const hasUrl = p.url && /^https?:\/\//.test(p.url);
+    const actions = document.createElement('div'); actions.className='project-actions';
+    const link = document.createElement(hasUrl ? 'a' : 'span'); link.className='project-link';
+    if(hasUrl){link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='웹사이트 방문 ↗';}else{link.classList.add('is-disabled');link.textContent='배포 링크 준비 중';}
+    const detail = document.createElement('button'); detail.type='button'; detail.className='detail-button'; detail.textContent='상세 보기';
     detail.addEventListener('click',()=>openProject(p,visual));
-    info.append(tag,title,desc,detail,link);const windowFrame=document.createElement('div');windowFrame.className='notepad-window';
+    actions.append(link,detail);
+    info.append(tag,title,desc,actions);
+    const windowFrame=document.createElement('div');windowFrame.className='notepad-window';
+    windowFrame.addEventListener('click',()=>openProject(p,visual));
     const bar=document.createElement('div');bar.className='notepad-title';bar.setAttribute('aria-hidden','true');
-    const name=document.createElement('span');name.textContent=`${p.title} — Notepad`;
-    const controls=document.createElement('span');controls.className='window-controls';controls.textContent='▁ □ ×';bar.append(name,controls);
-    const menu=document.createElement('div');menu.className='notepad-menu';menu.setAttribute('aria-hidden','true');menu.textContent='File   Edit   Format   View   Help';
+    const name=document.createElement('span');name.textContent=p.subtitle;
+    const controls=document.createElement('span');controls.className='window-controls';controls.innerHTML='<i></i><i></i><i></i>';bar.append(name,controls);
+    const menu=document.createElement('div');menu.className='notepad-menu';menu.setAttribute('aria-hidden','true');
+    menu.textContent = hasUrl ? p.url.replace(/^https?:\/\//,'').replace(/\/$/,'') : '배포 준비 중';
     windowFrame.append(bar,menu,visual);card.append(windowFrame,info);list.append(card);
   });
 }
