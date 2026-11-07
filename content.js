@@ -9,6 +9,12 @@
 
 window.siteContent = {
 
+  // 방문자 수 (GoatCounter). goatcounter.com 에서 만든 사이트 코드를 넣으면 하단 TODAY / TOTAL 이 켜집니다.
+  // 예: 주소가 https://modoriin79.goatcounter.com 이면 'modoriin79'. 비워두면 "집계 미연결"로 표시됩니다.
+  analytics: {
+    goatcounter: ''
+  },
+
   // 프로젝트 필터 버튼. 왼쪽은 내부 이름(영어), 오른쪽은 화면에 보이는 이름입니다.
   categories: {
     productivity: '생산성',
@@ -59,6 +65,19 @@ window.siteContent = {
       stack: '',
       role: '',
       notes: ''
+    },
+    {
+      title: '작업 트래커',
+      subtitle: 'WORK TRACKER',
+      description: '벌려놓은 프로젝트·공모전과 할 일을 한눈에. 마감 순 정리, 오늘의 할 일, 메모장, 항상 위에 뜨는 미니 위젯까지.',
+      category: 'productivity',
+      tag: '생산성 · 할 일',
+      image: './images/work_tracker.jpg',
+      url: 'https://modoriin79.github.io/work-tracker/',
+      github: 'https://github.com/modoriin79/work-tracker',
+      stack: 'HTML, CSS, JavaScript · localStorage · GitHub Gist 동기화',
+      role: '기획 · 디자인 · 개발',
+      notes: '빠른 추가 문법(#이름 !우선순위 ~마감일), 단축키, 여러 창 간 실시간 반영을 지원합니다.'
     }
   ],
 

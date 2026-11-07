@@ -39,4 +39,6 @@
 ## 배포 / 로컬 확인
 - `main` 브랜치에 올리면 GitHub Actions가 자동으로 배포합니다. 새 파일을 추가해도 설정을 바꿀 필요가 없습니다.
 - 로컬 확인: 저장소에서 `python -m http.server 8000` 실행 후 http://localhost:8000 접속.
-- 방문자 카운터는 아직 통계 서비스와 연결되어 있지 않습니다 (GoatCounter 등 연결 시 실제 수치 표시 가능).
+- 방문자 수(TODAY / TOTAL): GoatCounter 사용. `content.js` 맨 위 `analytics.goatcounter`에 사이트 코드를 넣으면 켜집니다.
+  GoatCounter 설정에서 **Allow adding visitor counts on your website**를 켜고, 시간대를 Asia/Seoul로 맞춰주세요.
+  숫자는 GoatCounter가 최대 몇 시간 캐시하므로 늦게 바뀔 수 있습니다.

@@ -16,6 +16,9 @@ The owner writes requests in Korean; reply in Korean.
   Note the global `border-radius: 0 !important` — the design is intentionally square.
 - `cursor.js` + `cursor.svg` / `cursor-pointer.svg` — pixel-art cursor and the glowing trail canvas
   (disabled on touch devices and with reduced motion).
+- `counter.js` — footer TODAY/TOTAL via GoatCounter public counter JSON (`/counter/TOTAL.json`, `?start=` today in KST).
+  Enabled by `analytics.goatcounter` in `content.js`; empty = "집계 미연결". Counts are cached by GoatCounter for a few hours.
+- `earth.js` — Three.js hero scene (import map in `index.html`), textures in `images/earth/`.
 - Images: put new screenshots in `images/` and reference them as `./images/name.png`.
 
 ## Common requests
