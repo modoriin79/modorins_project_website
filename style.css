@@ -301,3 +301,12 @@ html, body { overflow-x: clip; }
 .hero h1 { margin-top: 28px; margin-bottom: 24px; }
 .hero-earth { width: auto; margin-left: 0; height: clamp(220px, 25vw, 360px); max-height: calc(100vh - 380px); min-height: 220px; margin-bottom: 48px; }
 @media (max-width: 700px) { .hero { padding-top: 36px; } .hero h1 { margin-top: 24px; } .hero-earth { height: 56vw; max-height: none; min-height: 0; margin-bottom: 32px; } }
+/* v9: compact project windows (~30% larger than a Studies folder icon: about 177x130) */
+.notepad-window { width: 177px; box-shadow: 3px 3px 0 #111; }
+.notepad-window:hover { box-shadow: 4px 4px 0 #111; }
+.notepad-title { padding: 4px 7px; font-size: 8px; letter-spacing: .08em; }
+.window-controls { gap: 4px; }
+.window-controls i { width: 6px; height: 6px; }
+.notepad-menu { margin: 5px 6px; padding: 2px 6px; font-size: 8px; }
+.notepad-window .project-visual { height: 78px; margin: 0 6px 6px; }
+.project-info { padding-top: 18px; }
